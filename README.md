@@ -59,8 +59,8 @@ docs/
 ## ⚙️ Configuración Rápida (Dev)
 1. Clonar repo y entrar a la carpeta
 ```bash
-git clone https://github.com/REEMPLAZAR_USUARIO/REEMPLAZAR_REPO.git
-cd REEMPLAZAR_REPO
+ git clone https://github.com/LeonardoMartinez-1332/carvajal_empaques.git
+ cd carvajal_empaques
 ```
 2. Instalar dependencias
 ```bash
@@ -75,7 +75,6 @@ php artisan key:generate
 4. Configurar DB en `.env` y correr migraciones/seed
 ```bash
 php artisan migrate --seed
-# Opcional: importar datos JSON si ya cuentas con seeder para bitácora y productos
 ```
 5. Levantar servidor
 ```bash
@@ -113,12 +112,9 @@ git push -u origin dev
 ```
 
 ## 📄 Licencia
-MIT (ajusta si la universidad requiere otro formato).
 
 ## 👤 Autor
 **Nombre:** Leonardo Teófilo Martínez 
 **Rol:** Estudiante 10°A  | Estadia Profesional
 **Contacto:** 542211452@upgarcia.edu.mx
 ```
-
----
