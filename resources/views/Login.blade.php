@@ -13,7 +13,7 @@
     <div class="login-container">
         <div class="login-header">
             <img src="{{ asset('assets/Logo_Carvajal.png') }}" alt="Ilustración bienvenida" class="login-img">
-            <h1>Bienvenido a Carvajal Empaques</h1>
+            <h1>Bienvenido a Carvajal - Rama Dev</h1>
             <p class="tagline">Conectando soluciones, impulsando éxitos.</p>
         </div>
 
