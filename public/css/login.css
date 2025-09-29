@@ -1,0 +1,113 @@
+/* login.css */
+
+/* Paleta de colores inspirada en Carvajal */
+:root {
+    --orange: #F37021;
+    --purple: #6C2587;
+    --green:  #00A650;
+    --teal:   #00AAE4;
+    --navy:   #1D3A5F;
+    --dark:   #333;
+    --light:  #fff;
+    --bg:     #f9f9f9;
+}
+
+/* Estilos globales */
+body {
+    /* Fondo con gradiente sutil que evoca la identidad de la marca */
+    background: linear-gradient(135deg, var(--orange), var(--purple));
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    background-color: var(--light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Estilos del formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form h2 {
+    text-align: center;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+/* Mensaje de error */
+.error-msg {
+    background-color: var(--teal);
+    color: var(--navy);
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Inputs de correo y contraseña */
+.login-form input {
+    padding: 10px;
+    border: 1px solid var(--purple);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.login-form input::placeholder {
+    color: var(--dark);
+    opacity: 0.7;
+}
+
+/* Botón de envío */
+.login-form button {
+    background-color: var(--navy);
+    color: var(--light);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+    background-color: var(--green);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h1 {
+    color: var(--navy);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.login-header .tagline {
+    font-size: 1rem;
+    color: var(--purple);
+    font-style: italic;
+}
+
+.login-header {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}

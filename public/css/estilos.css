@@ -1,0 +1,769 @@
+
+.language-switcher {
+    position: absolute;
+    top: 20px; /* Espacio superior suficiente */
+    right: 20px; /* Separado del borde derecho */
+    font-size: 1.5em;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+header.encabezado {
+    position: relative; /* Necesario para posicionar el botón relativo al encabezado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px; /* Ajuste para mayor separación */
+    background-color: #f8f8f8;
+}
+
+.logo-nombre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px; /* Aumenta el espacio inferior del logo */
+}
+
+.logo-empresa {
+    max-width: 50px; /* Mantiene el tamaño máximo del logo */
+    margin-right: 10px;
+}
+
+.nombre-empresa {
+    font-size: 1.2em;
+    text-align: center;
+}
+
+nav ul.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul.menu li a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #333;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+nav ul.menu .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+nav ul.menu .dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+nav ul.menu li a i {
+    margin-left: 5px;
+}
+
+@media (min-width: 768px) {
+    header.encabezado {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-nombre {
+        margin-bottom: 0;
+    }
+
+    nav ul.menu {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .language-switcher {
+        position: absolute; /* Se mantiene absoluto en pantallas grandes */
+        top: 10px; /* Ajuste para pantallas más amplias */
+        right: 20px; /* Mantén el espacio en el borde derecho */
+    }
+}
+
+
+
+/*-------------------------------------------- contenido de la pagina --------------------------------*/
+/* main */
+.article {
+    position: relative;
+    text-align: center;
+    color: white;
+    /* Texto blanco */
+}
+
+/* Imagen de fondo con efecto overlay (texto encima) */
+.imagen-fondo {
+    position: relative;
+    background-image: url('assets/PARKS-STIVA-GARCIA.png');
+    /* imagen de fondo */
+    background-size: cover;
+    /* Para que la imagen cubra todo el div */
+    background-position: center;
+    height: 400px;
+    /* Ajusta el alto según lo que necesites */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para los encabezados dentro del overlay */
+.imagen-fondo h1,
+.imagen-fondo h2 {
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    width: 80%;
+    /* Ajusta el ancho del texto */
+    text-align: center;
+    border-radius: 10px;
+    /* Bordes redondeados */
+}
+
+.imagen-fondo h1 {
+    font-size: 2.5rem;
+    /* Tamaño del título principal */
+}
+
+.imagen-fondo h2 {
+    font-size: 1.8rem;
+    /* Tamaño del subtítulo */
+}
+
+/* Párrafo debajo de la imagen */
+.article p {
+    padding: 20px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+/*------------------------------------------ pie de pagina --------------------------------*/
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    /* Espacio entre columnas */
+    padding: 20px;
+    background-color: #f8f8f8;
+    /* Color de fondo igual al encabezado */
+    border-top: 1px solid #ddd;
+    /* Línea separadora */
+    flex-wrap: wrap;
+    /* Permite que las columnas se ajusten en pantallas pequeñas */
+    font-size: 0.9em;
+    /* Texto un poco más pequeño */
+}
+
+.footer-columna {
+    flex: 1;
+    /* Cada columna ocupa el mismo espacio */
+    padding: 10px;
+    /* Espacio interno de las columnas */
+    min-width: 200px;
+    /* Evita que las columnas sean demasiado pequeñas en pantallas pequeñas */
+}
+
+.footer-columna p,
+.footer-columna a {
+    margin: 5px 0;
+    /* Margen reducido entre párrafos y enlaces */
+    color: #333;
+    /* Color del texto */
+}
+
+.footer a {
+    color: #007BFF;
+    /* Color de los enlaces */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el mouse */
+}
+
+
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        /* Coloca las columnas verticalmente en pantallas pequeñas */
+        text-align: center;
+        /* Centra el texto en pantallas pequeñas */
+    }
+
+    .footer-columna {
+        margin-bottom: 20px;
+        /* Añade un margen entre columnas en pantallas pequeñas */
+    }
+}
+
+------------------------------ mision y vison ------------------------- body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+main {
+    padding: 20px;
+    background-color: white;
+}
+
+#content-mision {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.article-mision {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Títulos principales y secciones */
+.titulo-principal {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.titulo-seccion {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-seccion i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.texto-seccion {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Imágenes de sección */
+.imagen-seccion {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Secciones de misión y visión */
+.seccion-mision,
+.seccion-vision {
+    margin-bottom: 40px;
+}
+
+/* Adaptabilidad móvil */
+@media (max-width: 768px) {
+    .titulo-principal {
+        font-size: 28px;
+    }
+
+    .titulo-seccion {
+        font-size: 20px;
+    }
+
+    .texto-seccion {
+        font-size: 16px;
+    }
+}
+
+----------------------------- Historia -------------------------------
+
+/* Estilos específicos para la página de historia */
+.historia-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.historia-main {
+    padding: 20px;
+    background-color: white;
+}
+
+#historia-content-mision {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.article-mision {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Títulos principales y secciones */
+.historia-main .titulo-principal {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #004481;
+}
+
+.historia-main .titulo-seccion {
+    font-size: 24px;
+    color: #004481;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.historia-main .titulo-seccion i {
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+.historia-main .texto-seccion {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Imágenes de sección */
+.historia-main .imagen-seccion {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Secciones de misión y visión */
+.historia-main .seccion-mision,
+.historia-main .seccion-vision {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.historia-main .seccion-mision img,
+.historia-main .seccion-vision img {
+    width: 40%;
+}
+
+.historia-main .seccion-mision .texto-seccion,
+.historia-main .seccion-vision .texto-seccion {
+    width: 60%;
+}
+
+/* Adaptabilidad móvil */
+@media (max-width: 768px) {
+    .historia-main .titulo-principal {
+        font-size: 28px;
+    }
+
+    .historia-main .titulo-seccion {
+        font-size: 20px;
+    }
+
+    .historia-main .texto-seccion {
+        font-size: 16px;
+    }
+
+    .historia-main .seccion-mision,
+    .historia-main .seccion-vision {
+        flex-direction: column;
+    }
+
+    .historia-main .seccion-mision img,
+    .historia-main .seccion-vision img {
+        width: 100%;
+    }
+
+    .historia-main .seccion-mision .texto-seccion,
+    .historia-main .seccion-vision .texto-seccion {
+        width: 100%;
+    }
+}
+
+---------------------------------------- Blog ----------------------------------
+
+/* Estilos generales del blog */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    /* Color de fondo */
+}
+
+.blog-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.titulo-blog {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: black;
+    text-transform: uppercase;
+}
+
+
+/* Cuerpo del blog */
+.main-content {
+    flex: 3;
+    /* Parte principal del contenido */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Publicaciones del blog */
+.blog-post {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.blog-post img {
+    width: 100%;
+    /* Imagen adaptativa */
+    border-radius: 5px;
+}
+
+.blog-post p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.enlace-ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.enlace-ver-mas:hover {
+    background-color: #0056b3;
+    /* Color al pasar el ratón */
+}
+
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.sidebar h3 {
+    font-size: 20px;
+    color: #4CAF50;
+    /* Color verde del logo */
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar ul li a:hover {
+    color: #6A1B9A;
+    /* Color morado del logo */
+}
+
+/* Social Icons */
+.sidebar a i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #007bff;
+    /* Color azul del logo */
+}
+
+.sidebar a:hover i {
+    color: #ff5722;
+    
+}
+
+
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .blog-container {
+        flex-direction: column;
+        /* Coloca el contenido uno debajo del otro */
+    }
+
+    .sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+------------------------- consulta de cajas ------------------
+
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Fuente moderna */
+    background-color: #e6f2ff;
+    color: #333;
+}
+
+.main-consulta {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Caja de información */
+.product-info {
+    width: 50%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.input-codigo{
+    background-color: #55c1c3; /* Azul turquesa */
+    color: white;
+    padding: 10px 50px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size:16px;
+    
+}
+
+.product-info h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #ff8c00; /* Naranja */
+}
+
+.info-box {
+    background-color: #55c1c3; /* Azul turquesa */
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.highlight {
+    font-weight: bold;
+    background-color: #4caf50; /* Verde */
+}
+
+/* Botón "Consultar" */
+.btn-consultar {
+    background-color: #ff8c00; /* Naranja */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.btn-consultar:hover {
+    background-color: #e57b00; /* Naranja oscuro */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Imagen de producto */
+.product-image {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para uniformidad */
+}
+
+.product-image .tarima-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #6a0dad; /* Morado */
+}
+
+/* Botón "➡" */
+.next-button {
+    background-color: #ff8c00; /* Naranja */
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.next-button:hover {
+    background-color: #e57b00; /* Naranja oscuro */
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 768px) {
+    .product-info {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .product-image .tarima-image {
+        width: 100%;
+    }
+
+    .btn-consultar, .next-button {
+        width: 100%; /* Ocupan todo el ancho */
+        font-size: 20px;
+    }
+}
+
+
+------------------ gestion de productos ----------------------
+
+.admin-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-section th, .admin-section td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: black;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+----------------------------------------------- editar bitacora ------------------------------------
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.form-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-guardar {
+    background-color: #e98f12;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #e9231c;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center; /* <-- Esto los centra horizontalmente */
+}

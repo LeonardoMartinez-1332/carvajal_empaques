@@ -1,0 +1,95 @@
+/* supervisor.css */
+
+:root {
+    --orange: #F37021;
+    --purple: #6C2587;
+    --green:  #00A650;
+    --teal:   #00AAE4;
+    --navy:   #1D3A5F;
+    --dark:   #333;
+    --light:  #fff;
+    --bg:     #f9f9f9;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, var(--orange), var(--purple));
+    color: var(--dark);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-container {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-left: 5px solid var(--green);
+    text-align: center;
+}
+
+.encabezado .logo-carvajal {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.encabezado h2 {
+    color: var(--purple);
+    margin-bottom: 5px;
+}
+
+.encabezado .saludo {
+    font-size: 1rem;
+    color: var(--navy);
+    margin-bottom: 20px;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-panel {
+    background-color: var(--purple);
+    color: var(--light);
+    padding: 12px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-panel:hover {
+    background-color: var(--orange);
+}
+
+.logout-form {
+    text-align: center;
+}
+
+.btn-logout {
+    background-color: var(--navy);
+    color: var(--light);
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: var(--green);
+}

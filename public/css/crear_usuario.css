@@ -1,0 +1,106 @@
+:root {
+    --orange: #F37021;
+    --purple: #6C2587;
+    --green:  #00A650;
+    --navy:   #1D3A5F;
+    --light:  #fff;
+    --bg:     #f9f9f9;
+}
+
+/* Fondo con degradado como en el login */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor general */
+.registro-wrapper {
+    background: var(--light);
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+/* Logo */
+.registro-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.registro-logo img {
+    width: 60px;
+    height: auto;
+}
+
+
+/* Título */
+.registro-titulo {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: var(--navy);
+}
+.orange { color: var(--orange); }
+.purple { color: var(--purple); }
+
+/* Formulario */
+.registro-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.registro-formulario label {
+    font-weight: bold;
+    color: var(--navy);
+    text-align: left;
+}
+
+.registro-formulario input,
+.registro-formulario select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botón principal */
+.registro-formulario button {
+    background-color: var(--purple);
+    color: var(--light);
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.registro-formulario button:hover {
+    background-color: var(--orange);
+}
+
+/* Botón de regresar */
+.btn-regresar {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: var(--navy);
+    color: var(--light);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-regresar:hover {
+    background-color: var(--green);
+}

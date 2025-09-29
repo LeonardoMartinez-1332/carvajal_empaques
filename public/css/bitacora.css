@@ -1,0 +1,194 @@
+/* bitacora.css */
+
+/* 
+   Paleta de colores inspirada en el logo de Carvajal Empaques:
+   - Naranja: #F37021
+   - Morado: #6C2587
+   - Verde:  #00A650
+   - Teal:   #00AAE4
+   - Azul marino (para textos): #1D3A5F
+   - Fondo claro: #f9f9f9
+   - Texto oscuro genérico: #333
+*/
+
+:root {
+    --orange: #F37021;
+    --purple: #6C2587;
+    --green:  #00A650;
+    --teal:   #00AAE4;
+    --navy:   #1D3A5F;
+    --dark:   #333;
+    --light:  #fff;
+    --bg:     #f9f9f9;
+}
+
+/* Reinicios / Globales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--dark);
+}
+
+/* Contenedor principal */
+.bitacora-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--light);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/* Header flexible (logo + botones) */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Gradiente de naranja a morado */
+    background: linear-gradient(90deg, var(--orange) 0%, var(--purple) 100%);
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.logo-container .logo {
+    max-height: 50px;
+}
+
+/* Botones en la barra de acciones */
+.buttons-bar a,
+.buttons-bar button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--light);
+    background-color: var(--navy);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons-bar a:hover,
+.buttons-bar button:hover {
+    background-color: var(--green);
+}
+
+/* Encabezado general de la bitácora */
+.encabezado {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.encabezado h2 {
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 10px;
+}
+
+.bienvenida {
+    font-size: 1rem;
+    color: var(--dark);
+}
+
+/* Alerta de éxito */
+.alert-success {
+    background-color: var(--teal);
+    color: var(--navy);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Formulario de registro */
+form {
+    background-color: var(--bg);
+    padding: 20px;
+    border-left: 8px solid var(--green);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--navy);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--purple);
+    border-radius: 4px;
+}
+
+/* Botón de guardar */
+.btn-submit {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--purple);
+    color: var(--light);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--orange);
+}
+
+/* Historial de registros */
+.historial {
+    margin-top: 30px;
+}
+
+.historial h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--navy);
+    font-size: 1.4rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--light);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+table thead tr {
+    background: linear-gradient(90deg, var(--green) 0%, var(--teal) 100%);
+    color: var(--light);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--bg);
+}
+
+table tbody tr:hover {
+    background-color: #eaeaea;
+}

@@ -1,0 +1,183 @@
+:root {
+    --orange: #F37021;
+    --purple: #6C2587;
+    --green:  #00A650;
+    --teal:   #00AAE4;
+    --navy:   #1D3A5F;
+    --dark:   #333;
+    --light:  #fff;
+    --bg:     #f9f9f9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Helvetica Neue', sans-serif;
+    color: var(--dark);
+}
+
+/* Contenedor general */
+.tabla-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: var(--light);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Encabezado con nombre del usuario */
+.encabezado-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--teal), var(--purple));
+    padding: 15px 20px;
+    color: var(--light);
+}
+
+.btn-volver {
+    text-decoration: none;
+    background-color: var(--navy);
+    color: var(--light);
+    padding: 8px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-volver:hover {
+    background-color: var(--green);
+}
+
+/* Nav con logo */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, var(--orange), var(--purple));
+    padding: 15px 20px;
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-empresa {
+    max-height: 50px;
+}
+
+.logo-titulo h2 {
+    color: var(--light);
+    font-size: 1.4rem;
+}
+
+/* Buscador */
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--bg);
+}
+
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--purple);
+    border-radius: 4px;
+}
+
+.search-container button {
+    background-color: var(--purple);
+    color: var(--light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: var(--orange);
+}
+
+/* Sección de tabla */
+.admin-section {
+    padding: 20px;
+}
+
+.admin-section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--navy);
+}
+
+/* Tabla de bitácora */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--light);
+}
+
+table thead {
+    background: linear-gradient(90deg, var(--green), var(--teal));
+    color: var(--light);
+}
+
+table th,
+table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--bg);
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Botones de acción */
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--light);
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-edit {
+    background-color: var(--teal);
+}
+.btn-edit:hover {
+    background-color: var(--purple);
+}
+
+.btn-delete {
+    background-color: var(--orange);
+}
+.btn-delete:hover {
+    background-color: var(--navy);
+}

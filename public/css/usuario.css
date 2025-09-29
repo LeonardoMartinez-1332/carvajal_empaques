@@ -1,0 +1,104 @@
+
+/* Estilos para la vista de usuario normal */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.encabezado {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado h2 {
+    margin: 0;
+}
+
+.btn-logout {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-logout i {
+    margin-right: 5px;
+}
+
+.main-consulta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.product-info {
+    flex: 1 1 40%;
+    padding: 20px;
+}
+
+.product-image {
+    flex: 1 1 40%;
+    text-align: center;
+    padding: 20px;
+}
+
+.tarima-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.input-codigo {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-consultar {
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-consultar:hover {
+    background-color: #2471a3;
+}
+
+.info-box {
+    background-color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.highlight {
+    background-color: #dff9fb;
+    font-weight: bold;
+}
+
+.next-button {
+    margin-top: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
