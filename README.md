@@ -59,8 +59,8 @@ docs/
 ## ⚙️ Configuración Rápida (Dev)
 1. Clonar repo y entrar a la carpeta
 ```bash
-git clone https://github.com/REEMPLAZAR_USUARIO/REEMPLAZAR_REPO.git
-cd REEMPLAZAR_REPO
+ git clone https://github.com/LeonardoMartinez-1332/carvajal_empaques.git
+ cd carvajal_empaques
 ```
 2. Instalar dependencias
 ```bash
