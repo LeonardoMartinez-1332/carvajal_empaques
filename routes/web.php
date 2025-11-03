@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatosDBController;
 use App\Http\Controllers\BitacoraCamionController;
 use App\Http\Controllers\PanelController;
+use App\Http\Controllers\ProductImportController;
 
 
 Route::get('/importar-datos', [DatosDBController::class, 'recuperarBD']);
@@ -81,8 +82,4 @@ Route::middleware(['auth', 'role:superusuario'])->group(function () {
 
     Route::get('/superusuario', [PanelController::class, 'vistaSuperusuario'])->name('superusuario.panel');
 
-
-
 });
-
-
