@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\ProductImportController;
+use App\Http\Controllers\Api\ProductoController;
 
 // Rutas públicas (login)
 Route::post('/login', [AuthController::class, 'login']);
@@ -18,5 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
     // Método: POST /api/products/import  (multipart/form-data con campo "file")
     Route::post('/products/import', [ProductImportController::class, 'import']);
 
+    // listar productos 
+    Route::get('/productos', [ProductoController::class, 'index']);
     // Otras rutas API protegidas pueden ir aquí
 });

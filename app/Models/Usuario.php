@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class Usuario extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'usuarios';
+
+    // Si tu PK no es "id", define esto:
+    // protected $primaryKey = 'id_usuario';
 
     protected $fillable = [
         'nombre',
@@ -18,6 +22,7 @@ class Usuario extends Authenticatable
         'password',
         'rol',
         'activo',
+        // 'id_turno', // si lo manejas en la tabla, puedes agregarlo aquí
     ];
 
     /**
@@ -29,20 +34,22 @@ class Usuario extends Authenticatable
     ];
 
     /**
-     * Casts útiles. Si tienes Laravel 10+, puedes usar 'hashed'.
+     * Casts útiles.
      */
     protected $casts = [
-        // 'password' => 'hashed', // <- si usas Laravel 10+, descomenta esta línea y elimina el mutator de abajo.
+        'activo' => 'boolean',
+        // Si usas Laravel 10+ puedes descomentar esta línea
+        // y quitar el mutator de password:
+        // 'password' => 'hashed',
     ];
 
     /**
      * Mutator para asegurar que la contraseña quede cifrada
-     * (déjalo si NO estás usando el cast 'hashed' de Laravel 10+).
+     * (déjalo si NO estás usando el cast 'hashed').
      */
     public function setPasswordAttribute($value)
     {
-        // Evita re-hashear si ya viene hasheado
-        if ($value && !password_get_info($value)['algo']) {
+        if ($value && ! password_get_info($value)['algo']) {
             $this->attributes['password'] = bcrypt($value);
         } else {
             $this->attributes['password'] = $value;
@@ -50,8 +57,8 @@ class Usuario extends Authenticatable
     }
 
     /**
-     * Accesor opcional: algunas librerías/plantillas esperan 'email'.
-     * Así exponemos 'correo' como 'email' sin cambiar tu DB.
+     * Accesor: muchas libs esperan 'email'.
+     * Mapeamos 'correo' -> 'email' sin cambiar la DB.
      */
     public function getEmailAttribute()
     {
@@ -59,7 +66,7 @@ class Usuario extends Authenticatable
     }
 
     /* =====================
-    Relaciones que ya tenías
+    Relaciones
        ===================== */
 
     public function camiones()

@@ -9,19 +9,23 @@ class Producto extends Model
     protected $table = 'productos';
 
     protected $fillable = [
-        'codigo', 'descripcion',
-        'pz_x_pt', 'vol', 'w', 'tipo',
-        'udm', 'cajas_por_tarima',
-        'volumen_unitario', 'costo_pac_unitario',
-        'num_caja', 'camas', 'cajas_por_cama', 'total_cajas',
+        'codigo',
+        'descripcion',
+        'camas',
+        'cajas_por_cama',
+        'pz_x_pt',
+        'cajas_por_tarima',
+        'udm',
+        'tipo',
+        'vol',
+        'w',
+        'volumen_unitario',
+        'costo_pac_unitario',
     ];
 
-    // Para que Eloquent te devuelva tipos correctos
     protected $casts = [
-        'num_caja'          => 'integer',
         'camas'             => 'integer',
         'cajas_por_cama'    => 'integer',
-        'total_cajas'       => 'integer',
         'pz_x_pt'           => 'integer',
         'cajas_por_tarima'  => 'integer',
         'vol'               => 'float',
