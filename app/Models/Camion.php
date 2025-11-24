@@ -40,4 +40,10 @@ class Camion extends Model
     {
         return $query->where('id_turno', $turnoId);
     }
+
+    public function scopeBuscar($query, $q)
+    {
+        return $query->where('nom_linea', 'like', '%' . $q . '%');
+    }
+
 }

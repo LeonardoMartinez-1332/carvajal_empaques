@@ -61,7 +61,7 @@ class AuthController extends Controller
                 'id'    => $user->id,
                 'name'  => $user->nombre,
                 'email' => $user->correo,          // el correo real de la BD
-                'role'  => $user->rol ?? 'usuario',
+                'role'  => $user->role ?? 'usuario',
                 'activo'=> (bool) $user->activo,
             ],
         ]);
@@ -79,7 +79,7 @@ class AuthController extends Controller
             'id'    => $u->id,
             'name'  => $u->nombre,
             'email' => $u->correo,
-            'role'  => $u->rol ?? 'usuario',
+            'role'  => $u->role ?? 'usuario',
             'activo'=> (bool) $u->activo,
         ]);
     }

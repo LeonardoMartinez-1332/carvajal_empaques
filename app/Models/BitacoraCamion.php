@@ -11,37 +11,38 @@ class BitacoraCamion extends Model
 
     protected $table = 'bitacora_camiones';
 
-    protected $fillable = [
+        protected $fillable = [
         'fecha',
         'hora_llegada',
         'id_turno',
         'id_transp',
-        'logistica',
-        'num_asn',
+        'origen',
+        'destino',
+        'num_fi_ti',
         'id_supervisor',
         'cantidad_tarimas',
+        'rampa',
+        'estado',
         'hora_salida',
+
+        // nuevos campos
+        'npi',
+        'estatus_aprobacion',
+        'aprobado_por',
+        'aprobado_at',
     ];
 
-    /**
-     * Relación con Turno (Uno a Muchos - Un turno tiene muchas bitácoras)
-     */
+
     public function turno()
     {
         return $this->belongsTo(Turno::class, 'id_turno');
     }
 
-    /**
-     * Relación con Camion (Uno a Muchos - Un camión puede estar en varias bitácoras)
-     */
     public function camion()
     {
         return $this->belongsTo(Camion::class, 'id_transp');
     }
 
-    /**
-     * Relación con Usuario (Uno a Muchos - Un usuario/supervisor puede tener muchas bitácoras)
-     */
     public function supervisor()
     {
         return $this->belongsTo(Usuario::class, 'id_supervisor');

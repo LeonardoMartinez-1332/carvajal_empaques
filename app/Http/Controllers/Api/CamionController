@@ -3,33 +3,34 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Turno;
+use App\Models\Camion;
 use Illuminate\Http\Request;
 
-class TurnoController extends Controller
+class CamionController extends Controller
 {
     public function index(Request $request)
     {
-        $q        = $request->query('q');
-        $activos  = $request->boolean('activos');
+        $q        = $request->query('q');          // búsqueda
+        $turnoId  = $request->query('turno_id');   // filtrar camiones por turno
         $perPage  = (int) $request->integer('per_page', 0);
 
-        $query = Turno::query()->orderBy('id');
+        $query = Camion::query()
+            ->with(['turno', 'usuario'])
+            ->orderBy('id');
 
-        // scopes opcionales si los tienes en el modelo
-        if (method_exists(Turno::class, 'scopeBuscar') && $q) {
+        // 🔍 Scope de búsqueda (nom_linea LIKE %q%)
+        if (!empty($q)) {
             $query->buscar($q);
         }
-        if (method_exists(Turno::class, 'scopeActivo') && $activos) {
-            $query->activo();
+
+        // 🔹 Filtrar por turno usando el scope porTurno del modelo
+        if (!empty($turnoId)) {
+            $query->porTurno($turnoId);
         }
 
-        // Campos que queremos devolver
-        $columns = ['id', 'nombre_turno', 'activo'];
-
-        // Con paginación
+        // 🔹 Si viene paginación
         if ($perPage > 0) {
-            $p = $query->paginate($perPage, $columns);
+            $p = $query->paginate($perPage);
 
             return response()->json([
                 'ok'   => true,
@@ -43,8 +44,8 @@ class TurnoController extends Controller
             ]);
         }
 
-        // Sin paginación
-        $items = $query->get($columns);
+        // 🔹 Sin paginación
+        $items = $query->get();
 
         return response()->json([
             'ok'   => true,
@@ -55,26 +56,27 @@ class TurnoController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nombre_turno' => ['required', 'string', 'max:255'],
-            'activo'       => ['nullable', 'boolean'],
+            'nom_linea'  => ['required', 'string', 'max:255'],
+            'id_turno'   => ['required', 'integer', 'exists:turnos,id'],
+            'id_usuario' => ['nullable', 'integer', 'exists:usuarios,id'],
         ]);
 
-        $turno = Turno::create([
-            'nombre_turno' => $data['nombre_turno'],
-            'activo'       => $data['activo'] ?? true,
-        ]);
+        $camion = Camion::create($data);
+
+        // Cargar relaciones para que Flutter reciba todo completo
+        $camion->load(['turno', 'usuario']);
 
         return response()->json([
             'ok'   => true,
-            'data' => $turno,
+            'data' => $camion,
         ], 201);
     }
 
     public function show($id)
     {
-        $turno = Turno::find($id, ['id', 'nombre_turno', 'activo']);
+        $camion = Camion::with(['turno', 'usuario'])->find($id);
 
-        if (!$turno) {
+        if (!$camion) {
             return response()->json([
                 'ok'      => false,
                 'message' => 'No encontrado',
@@ -83,15 +85,15 @@ class TurnoController extends Controller
 
         return response()->json([
             'ok'   => true,
-            'data' => $turno,
+            'data' => $camion,
         ]);
     }
 
     public function update(Request $request, $id)
     {
-        $turno = Turno::find($id);
+        $camion = Camion::find($id);
 
-        if (!$turno) {
+        if (!$camion) {
             return response()->json([
                 'ok'      => false,
                 'message' => 'No encontrado',
@@ -99,31 +101,33 @@ class TurnoController extends Controller
         }
 
         $data = $request->validate([
-            'nombre_turno' => ['sometimes', 'required', 'string', 'max:255'],
-            'activo'       => ['sometimes', 'boolean'],
+            'nom_linea'  => ['sometimes', 'required', 'string', 'max:255'],
+            'id_turno'   => ['sometimes', 'required', 'integer', 'exists:turnos,id'],
+            'id_usuario' => ['sometimes', 'nullable', 'integer', 'exists:usuarios,id'],
         ]);
 
-        $turno->update($data);
+        $camion->update($data);
+        $camion->load(['turno', 'usuario']);
 
         return response()->json([
             'ok'   => true,
-            'data' => $turno,
+            'data' => $camion,
         ]);
     }
 
     public function destroy($id)
     {
-        $turno = Turno::find($id);
+        $camion = Camion::find($id);
 
-        if (!$turno) {
+        if (!$camion) {
             return response()->json([
                 'ok'      => false,
                 'message' => 'No encontrado',
             ], 404);
         }
 
-        $deletedId = $turno->id;
-        $turno->delete();
+        $deletedId = $camion->id;
+        $camion->delete();
 
         return response()->json([
             'ok'      => true,
