@@ -18,11 +18,11 @@ class TiDetalle extends Model
 
     public function ti()
     {
-        return $this->belongsTo(Ti::class, 'ti_id');
+        return $this->belongsTo(TiDirecta::class, 'ti_id', 'id');
     }
 
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'producto_id');
+        return $this->belongsTo(Producto::class, 'producto_id', 'id');
     }
 }

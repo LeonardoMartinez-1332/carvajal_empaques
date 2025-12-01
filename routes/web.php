@@ -33,16 +33,16 @@ Route::middleware(['auth', 'role:usuario'])->group(function () {
 //SUPERVISOR
 
 Route::middleware(['auth', 'role:supervisor'])->group(function () {
-    Route::get('/panel-supervisor', [DatosDBController::class, 'vistaSupervisor'])->name('supervisor.panel');
+    //Route::get('/panel-supervisor', [DatosDBController::class, 'vistaSupervisor'])->name('supervisor.panel');
     
     // Vista para consultar productos
-    Route::get('/consulta-producto', [DatosDBController::class, 'vistaConsultaProducto'])->name('consulta.producto');
+    //Route::get('/consulta-producto', [DatosDBController::class, 'vistaConsultaProducto'])->name('consulta.producto');
 
     // Bitácora para supervisor 
-    Route::get('/bitacora-camiones', [BitacoraCamionController::class, 'vistaFormulario'])->name('bitacora.panel');
+    //Route::get('/bitacora-camiones', [BitacoraCamionController::class, 'vistaFormulario'])->name('bitacora.panel');
 
     // Nueva ruta para guardar el registro de camión
-    Route::post('/bitacora-camiones/guardar', [BitacoraCamionController::class, 'guardarRegistro'])->name('bitacora.guardar');
+    //Route::post('/bitacora-camiones/guardar', [BitacoraCamionController::class, 'guardarRegistro'])->name('bitacora.guardar');
 });
 
 
@@ -51,12 +51,12 @@ Route::middleware(['auth', 'role:superusuario'])->group(function () {
     Route::get('/panel-superusuario', [DatosDBController::class, 'vistaSuperusuario'])->name('superusuario.panel');
 
     // Usuarios
-    Route::get('/admin', [DatosDBController::class, 'verPanelAdmin'])->name('admin.panel');
-    Route::delete('/usuarios/{id}', [DatosDBController::class, 'eliminarUsuario'])->name('usuarios.eliminar');
-    Route::get('/usuarios/{id}/editar', [DatosDBController::class, 'editarUsuario'])->name('usuarios.editar');
-    Route::put('/usuarios/{id}', [DatosDBController::class, 'actualizarUsuario'])->name('usuarios.actualizar');
-    Route::post('/usuarios/{id}/desbloquear', [DatosDBController::class, 'desbloquear'])->name('usuarios.desbloquear');
-    Route::post('/usuarios/{id}/resetear', [DatosDBController::class, 'resetearContrasena'])->name('usuarios.resetear');
+    //Route::get('/admin', [DatosDBController::class, 'verPanelAdmin'])->name('admin.panel');
+    //Route::delete('/usuarios/{id}', [DatosDBController::class, 'eliminarUsuario'])->name('usuarios.eliminar');
+    //Route::get('/usuarios/{id}/editar', [DatosDBController::class, 'editarUsuario'])->name('usuarios.editar');
+    //Route::put('/usuarios/{id}', [DatosDBController::class, 'actualizarUsuario'])->name('usuarios.actualizar');
+    //Route::post('/usuarios/{id}/desbloquear', [DatosDBController::class, 'desbloquear'])->name('usuarios.desbloquear');
+    //Route::post('/usuarios/{id}/resetear', [DatosDBController::class, 'resetearContrasena'])->name('usuarios.resetear');
 
 
     // Productos

@@ -20,7 +20,7 @@ class Usuario extends Authenticatable
         'nombre',
         'correo',
         'password',
-        'rol',
+        'role',
         'activo',
         // 'id_turno', // si lo manejas en la tabla, puedes agregarlo aquí
     ];

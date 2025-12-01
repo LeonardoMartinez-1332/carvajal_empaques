@@ -2,13 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TiDirecta extends Model
 {
-    use HasFactory;
-
     protected $table = 'ti_directas';
 
     protected $fillable = [
@@ -23,16 +20,23 @@ class TiDirecta extends Model
         'almacen_destino',
         'creado_por',
         'estatus',
-        'pdf_path',
     ];
 
-    public function producto()
+    // 🔹 Detalles de la TI
+    public function lineas()
     {
-        return $this->belongsTo(Producto::class, 'producto_id');
+        return $this->hasMany(TiDetalle::class, 'ti_id', 'id');
     }
 
+    // 🔹 Usuario que creó la TI
     public function creador()
     {
-        return $this->belongsTo(Usuario::class, 'creado_por');
+        return $this->belongsTo(User::class, 'creado_por', 'id');
+    }
+
+    // 🔹 Producto “de cabecera” (por compatibilidad)
+    public function producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id', 'id');
     }
 }
