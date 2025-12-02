@@ -9,21 +9,23 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        // devuelve SOLO lo que Flutter espera
+        // Devuelve SOLO lo que Flutter necesita
         return Producto::select(
             'id',
             'codigo',
             'descripcion',
             'camas',
             'cajas_por_cama',
-            'cajas_por_tarima',
             'pz_x_pt',
+            'cajas_por_tarima',
+            'udm',
+            'tipo',
             'vol',
             'w',
-            'tipo',
-            'udm',
             'volumen_unitario',
             'costo_pac_unitario'
-        )->get();
+        )
+        ->orderBy('codigo')
+        ->get();
     }
 }

@@ -34,21 +34,24 @@ class AuthController extends Controller
         if (! $user) {
             return response()->json([
                 'message' => 'Las credenciales proporcionadas no son válidas.',
+                'code'    => 'invalid_credentials',
             ], 401);
         }
 
         // 3) Si ya está bloqueado, no dejamos ni intentar
         if ($user->bloqueado) {
             return response()->json([
-                'message'   => 'Este usuario está bloqueado. Contacta al administrador.',
+                'message'   => 'Tu cuenta se encuentra bloqueada por múltiples intentos fallidos.',
+                'code'      => 'account_locked',
                 'bloqueado' => true,
-            ], 403); // o 423 si quieres ser más estricto
+            ], 403); // 403 ó 423, como prefieras
         }
 
-        // 4) Bloquear usuarios inactivos (regla de negocio que ya tenías)
+        // 4) Bloquear usuarios inactivos
         if (! $user->activo) {
             return response()->json([
                 'message'  => 'Este usuario se encuentra inactivo.',
+                'code'     => 'user_inactive',
                 'inactivo' => true,
             ], 403);
         }
@@ -66,7 +69,8 @@ class AuthController extends Controller
             $user->save();
 
             return response()->json([
-                'message'           => 'Credenciales incorrectas.',
+                'message'           => 'Correo o contraseña incorrectos.',
+                'code'              => 'invalid_credentials',
                 'bloqueado'         => (bool) $user->bloqueado,
                 'intentos_fallidos' => (int) $user->intentos_fallidos,
             ], 401);
@@ -75,13 +79,12 @@ class AuthController extends Controller
         // 6) Si la contraseña es correcta, reseteamos los intentos
         if ($user->intentos_fallidos > 0 || $user->bloqueado) {
             $user->intentos_fallidos = 0;
-            // por si en un futuro lo desbloqueas manualmente y quieres asegurarte
-            // de que no quede bloqueado después de login correcto
+            // Si alguna vez lo desbloqueas manual y quieres asegurar:
             // $user->bloqueado = false;
             $user->save();
         }
 
-        // 7) (Opcional pero pro) Dejar solo una sesión activa por usuario
+        // 7) Dejar solo una sesión activa por usuario
         $user->tokens()->delete();
 
         // 8) Crear token Sanctum para el ERP / Flutter
@@ -150,12 +153,14 @@ class AuthController extends Controller
         if (! $user) {
             return response()->json([
                 'message' => 'No existe un usuario con ese correo.',
+                'code'    => 'user_not_found',
             ], 404);
         }
 
         if (! $user->bloqueado) {
             return response()->json([
                 'message' => 'Este usuario no está bloqueado actualmente.',
+                'code'    => 'user_not_blocked',
             ], 422);
         }
 
@@ -167,6 +172,7 @@ class AuthController extends Controller
         if ($yaPendiente) {
             return response()->json([
                 'message' => 'Ya existe una solicitud de desbloqueo pendiente.',
+                'code'    => 'unlock_request_exists',
             ], 409);
         }
 
@@ -179,6 +185,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message' => 'Solicitud de desbloqueo registrada.',
+            'code'    => 'unlock_request_created',
             'request' => $req,
         ], 201);
     }

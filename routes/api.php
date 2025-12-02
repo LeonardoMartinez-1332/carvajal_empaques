@@ -49,6 +49,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/admin/usuarios/{id}', [AdminUsuarioController::class, 'update']);
     Route::patch('/admin/usuarios/{id}/estado', [AdminUsuarioController::class, 'updateEstado']);
     Route::delete('/admin/usuarios/{id}', [AdminUsuarioController::class, 'destroy']);
+    // --- Desbloqueo de usuarios (ADMIN) ---
+    Route::get('/admin/unlock-requests', [UserUnlockRequestController::class, 'index']);
+    Route::post('/admin/unlock-requests/{id}/approve', [UserUnlockRequestController::class, 'approve'])
+        ->whereNumber('id');
+    Route::post('/admin/unlock-requests/{id}/reject', [UserUnlockRequestController::class, 'reject'])
+        ->whereNumber('id');
+    
+
 
 
     // Rutas para rol jobs (analistas de facturación)
