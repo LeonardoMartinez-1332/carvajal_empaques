@@ -9,6 +9,10 @@ use App\Http\Controllers\Api\TiDirectaController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\Api\AdminUsuarioController;
 use App\Http\Controllers\Api\UserUnlockRequestController;
+use App\Http\Controllers\Api\AdminProductoController;
+use App\Http\Controllers\Api\TurnoController;
+use App\Http\Controllers\Api\CamionController;
+
 
 
 // Rutas públicas (login)
@@ -38,6 +42,10 @@ Route::middleware('auth:sanctum')->group(function () {
         ->whereNumber('id');
     Route::delete('/bitacora-camiones/{id}',  [BitacoraCamionController::class, 'destroy'])
         ->whereNumber('id');
+        // --- Catálogos simples para la app (turnos / transportes) ---
+    Route::get('/catalogos/turnos', [BitacoraCamionController::class, 'catalogoTurnos']);
+    Route::get('/catalogos/transportes', [BitacoraCamionController::class, 'catalogoTransportes']);
+
 
     // admin 
     Route::post('/bitacora-camiones/{id}/aprobar', [BitacoraCamionController::class, 'aprobar'])
@@ -55,7 +63,15 @@ Route::middleware('auth:sanctum')->group(function () {
         ->whereNumber('id');
     Route::post('/admin/unlock-requests/{id}/reject', [UserUnlockRequestController::class, 'reject'])
         ->whereNumber('id');
-    
+        // --- Catálogo de productos (ADMIN) ---
+    Route::get('/admin/productos', [AdminProductoController::class, 'index']);
+    Route::post('/admin/productos', [AdminProductoController::class, 'store']);
+    Route::put('/admin/productos/{producto}', [AdminProductoController::class, 'update'])
+        ->whereNumber('producto');
+    Route::delete('/admin/productos/{producto}', [AdminProductoController::class, 'destroy'])
+        ->whereNumber('producto');
+    Route::get('/admin/productos/export', [AdminProductoController::class, 'export']);
+
 
 
 

@@ -7,6 +7,9 @@ use App\Models\BitacoraCamion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use App\Models\Turno;
+use App\Models\Camion;
+
 
 class BitacoraCamionController extends Controller
 {
@@ -306,4 +309,45 @@ class BitacoraCamionController extends Controller
             'message' => 'Registro eliminado de la bitácora.',
         ]);
     }
+
+    // 🔹 Catálogo de turnos para la app
+    public function catalogoTurnos()
+    {
+        // Solo turnos activos; columna real: nombre_turno
+        $turnos = Turno::activo()->get(['id', 'nombre_turno']);
+
+        // Los exponemos como { id, nombre } para Flutter
+        $payload = $turnos->map(function ($t) {
+            return [
+                'id'     => $t->id,
+                'nombre' => $t->nombre_turno,
+            ];
+        });
+
+        return response()->json($payload->values());
+    }
+
+    // 🔹 Catálogo de transportes (camiones) para la app
+    public function catalogoTransportes()
+    {
+        // Traemos camiones con su turno (por si quieres usarlo en el front)
+        $camiones = Camion::with('turno')
+            ->orderBy('nom_linea')
+            ->get();
+
+        // Estructura amigable para Flutter
+        $payload = $camiones->map(function ($c) {
+            return [
+                'id'        => $c->id,
+                'nombre'    => $c->nom_linea,                    // lo que verá el usuario
+                'turno_id'  => $c->id_turno,
+                'turno'     => optional($c->turno)->nombre_turno // opcional, por si lo usas
+            ];
+        });
+
+        return response()->json($payload->values());
+    }
+
+
+
 }
