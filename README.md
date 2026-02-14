@@ -14,7 +14,7 @@ Este repositorio contiene el núcleo lógico y la API REST del sistema ERP desar
 * **Interconectividad:** Endpoints desarrollados específicamente para la integración con la App Móvil Flutter.
 
 ## 📂 Repositorios Relacionados
-* **App Móvil (Flutter):** [https://github.com/LeonardoMartinez-1332/carvajal-erp-mobile?tab=readme-ov-file#aplicaci%C3%B3n-m%C3%B3vil-multiplataforma-desarrollada-con-flutter-para-la-gesti%C3%B3n-y-visualizaci%C3%B3n-de-procesos-internos-del-erp]
+* **App Móvil (Flutter):** [https://github.com/LeonardoMartinez-1332/carvajal-erp-mobile]
 
 ## 🎓 Contexto Profesional
 Este proyecto formó parte de mi estadía profesional como Desarrollador de Software Jr, aplicando conocimientos analíticos para la resolución de incidencias y mejora de procesos.
